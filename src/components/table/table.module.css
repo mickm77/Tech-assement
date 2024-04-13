@@ -1,0 +1,94 @@
+
+
+.table {
+    width: 100%;
+    /* border-collapse: collapse;
+     */
+     border-spacing: 0;
+    border: 1px solid var(--boundry);
+    border-radius: var(--radius);
+    background-color: var(--asWhite);
+    color: var(--grey-1);
+    
+    tr:hover {
+        background-color: var(--grey-6);
+    }
+
+    
+    .selected {
+        background-color: var(--grey-5);
+    }
+
+    td {
+        padding: var(--pad);
+        margin: 0;
+        border-block-start: 1px solid var(--boundry);
+    
+    }
+
+    td:first-child {
+        color: var(--grey-0);
+
+    }
+}
+
+/**** head border radius + background colour fix ****/ 
+.table thead tr th:first-child {
+  border-radius: var(--radius) 0 0 0;
+}
+.table thead tr th:last-child {
+    border-radius: 0 var(--radius) 0 0;
+  }
+/*****/
+
+
+.tableHead{
+    background-color: var(--grey-6);
+    text-align: left;
+
+    .title {
+        cursor: pointer;
+        border: none;
+        background-color: transparent;
+    }
+}
+
+
+
+.tableCell {
+    padding: var(--pad);
+} 
+
+.filterIcon {
+    cursor: pointer;
+    position: relative;
+
+}
+
+.filter {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--sp5);
+    position: absolute;
+    top: 100%;
+    padding: var(--sp2) var(--sp3);
+    background-color: var(--asWhite);
+    border: 1px solid var(--boundry);
+}
+
+.filterIcon:hover > .filter, .filterIcon:focus-within > .filter {
+    display: flex;
+}
+
+
+.overrideLeft {
+    text-align: left;
+}
+.overrideRight {
+    text-align: right;
+}
+
+.overrideCenter {
+    text-align: center;
+}
