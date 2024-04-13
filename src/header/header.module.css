@@ -1,0 +1,12 @@
+
+
+.container {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--asBlack);
+  color: var(--asWhite);
+
+  h2 {
+    font-size: 4rem;
+  }
+}

@@ -1,0 +1,6 @@
+
+
+.center {
+    max-width: var(--lg-max-width);
+    margin: 0 auto;
+}

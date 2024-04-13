@@ -1,0 +1,12 @@
+
+
+.homePage {
+    margin-block-start: var(--sp8);
+
+    .infoRow {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+}
