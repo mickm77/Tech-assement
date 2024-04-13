@@ -4,10 +4,73 @@
   line-height: 24px;
   font-weight: 400;
   width: 100vw;
-  background-color: aliceblue;
+  /* background-color: aliceblue;
+  */
+
+  --primary: #1b2734;
+  --secondary: #f5f5f5;
+  --accent:rebeccapurple;
+  --background: aliceblue;
+
+  --asWhite: white;
+  --asBlack: black;
+
+  --grey-6: #f9fafb;
+  --grey-5: #d5d3d3;
+  --grey-4: #C0C0C0;
+  --grey-3: #A9A9A9;
+  --grey-2: #808080;
+  --grey-1: #6b7280;
+  --grey-0: #111827;
+  
+  --error-primary: #f44336;
+  --error-secondary: #f8d7da;
+
+  --font-sm: 0.875rem;
+  --font-md: 1rem;
+  --font-lg: 1.25rem;
+
+  --sp1: 0.25rem;
+  --sp2: 0.5rem;
+  --sp3: 0.75rem;
+  --sp4: 1rem;
+  --sp5: 1.5rem;
+  --sp6: 2rem;
+  --sp7: 3rem;
+  --sp8: 4rem;
+  --sp9: 6rem;
+  --sp10: 8rem;
+  --sp11: 12rem;
+  --sp12: 16rem;
+
+
+  --lg-max-width: 960px;
+
+  --radius: var(--sp2);
+  --pad: var(--sp3);
+
+  --boundry: var(--grey-5);
 }
 
 body {
   margin: 0;
   padding: 0;
+
+  background-color: var(--background);
+}
+
+.accentButton {
+  background-color: var(--accent);
+  color: var(--asWhite);
+  border: none;
+  border-radius: var(--radius);
+  padding: var(--sp3) var(--sp5);
+  cursor: pointer;
+  font-size: var(--font-sm);
+  font-weight: 600;
+  opacity: 0.9;
+
+  &:hover {
+    opacity: 1;
+  }
 }
