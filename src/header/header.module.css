@@ -6,7 +6,7 @@
   background-color: var(--asBlack);
   color: var(--asWhite);
 
-  h2 {
-    font-size: 4rem;
+  h1 {
+    font-size: var(--header-font-size);
   }
 }

@@ -3,7 +3,7 @@ import css from "./header.module.css";
 const Header = () => {
 	return (
 		<header className={css.container}>
-			<h2>Welcome to Movie database!</h2>
+			<h1>Welcome to Movie database!</h1>
 		</header>
 	);
 };
