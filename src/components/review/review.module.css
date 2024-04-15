@@ -1,0 +1,52 @@
+
+
+.reviewForm {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: var(--sp4);
+    width: 80%;
+    margin: 0 auto;
+
+    .used {
+        text-align: right;
+        padding-inline: var(--sp3);
+    }
+
+    .tooMany {
+        color: var(--error-primary);
+    }
+
+    .formError {
+        color: var(--error-primary);
+
+    }
+    .formError {
+        display: block;
+    }
+    @media screen and (min-width: 960px) {
+        .formError {
+            display: none;
+        }
+        
+    }
+    .buttons {
+        display: flex;
+        justify-content: flex-end;
+        gap: var(--sp4);
+
+        .formError {
+            display: none;
+        }
+
+        @media screen and (min-width: 960px) {
+            .formError {
+                display: block;
+                margin-inline-end: auto;
+            }
+            
+        }
+    }
+
+
+
+}
