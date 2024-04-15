@@ -3,13 +3,17 @@ import movieColumnDef from "./movieColumnDef";
 import Table from "../table";
 import { useState } from "react";
 import { Movie } from "../../api/movies";
-import css from "./movies.module.css";
+import ErrorBox from "../errorBox/ErrorBox";
 
-const MoviesTable = () => {
-	const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
+type MoviesTableProps = {
+	selectedMovie: Movie | null;
+	setSelectedMovie: (movie: Movie) => void;
+};
+
+const MoviesTable = ({ selectedMovie, setSelectedMovie }: MoviesTableProps) => {
 	const { movies, filter, loading: movieLoading, filtering, sort, sortField } = useMovies();
 	if (movieLoading.isError) {
-		return <div className={css.dataError}>Error Loading data</div>;
+		return <ErrorBox error='Error Loading Data' />;
 	}
 
 	const columns = movieColumnDef(filtering);
@@ -23,6 +27,7 @@ const MoviesTable = () => {
 			filter={filter || []}
 			isLoading={movieLoading.isLoading}
 			rowSelected={setSelectedMovie}
+			highlightRow={selectedMovie?.id}
 		/>
 	);
 };
