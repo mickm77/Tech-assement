@@ -1,6 +1,7 @@
 
 
 .homePage {
+    position: relative;
     margin-block-start: var(--sp8);
 
     .infoRow {
@@ -9,4 +10,46 @@
         align-items: center;
     }
 
+}
+
+.mobileConstrain {
+    overflow-y: auto;
+}
+
+
+.selectedMovie {
+    display: grid;
+    place-content: center;
+    background-color: var(--dialogBackground);
+    position: fixed;
+    inset: 0;
+    padding: var(--pad);
+    h2 {
+        text-align: center;
+        text-wrap: balance;
+        color: var(--grey-0);
+        em {
+            color: var(--accent);
+        }
+    }
+
+    .reviewBackground {
+        background-color: var(--grey-6);
+        padding: var(--pad);
+        border-radius: var(--radius);
+    }
+    @media screen and (min-width: 960px) {
+        position: relative;
+        display: flex;
+        flex-flow: column nowrap;
+        background-color: transparent;
+        h2 {
+            text-align: left;
+        }
+        .reviewBackground {
+            background-color: none;
+            padding: var(--pad);
+            border-radius: var(--radius);
+        }
+    }
 }

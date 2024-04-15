@@ -3,6 +3,8 @@ import MoviesTable from "../../components/movies/MoviesTable";
 import useMovies from "../../components/movies/useMovies";
 import css from "./home.module.css";
 import { Movie } from "../../api/movies";
+import Review from "../../components/review";
+import StopPropagation from "../../components/stopPropagation/StopPropagation";
 
 const Home = () => {
 	const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
@@ -23,7 +25,27 @@ const Home = () => {
 					</button>
 				)}
 			</div>
-			<MoviesTable setSelectedMovie={setSelectedMovie} selectedMovie={selectedMovie} />
+			<div className={css.mobileConstrain}>
+				<MoviesTable setSelectedMovie={setSelectedMovie} selectedMovie={selectedMovie} />
+			</div>
+			{selectedMovie && (
+				<div className={css.selectedMovie} onClick={() => setSelectedMovie(null)}>
+					<StopPropagation>
+						<div className={css.reviewBackground}>
+							<h2>
+								Add review for <em>{selectedMovie?.title}</em>
+							</h2>
+							<div className='framed'>
+								<Review
+									movieId={selectedMovie?.id || -1}
+									afterSave={() => setSelectedMovie(null)}
+									onCancel={() => setSelectedMovie(null)}
+								/>
+							</div>
+						</div>
+					</StopPropagation>
+				</div>
+			)}
 		</div>
 	);
 };
