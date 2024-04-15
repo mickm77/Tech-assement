@@ -3,4 +3,9 @@
 .center {
     max-width: var(--lg-max-width);
     margin: 0 auto;
+    padding-inline: var(--pad);
+}
+
+.bottomPage {
+    margin-block-end: var(--sp8);
 }

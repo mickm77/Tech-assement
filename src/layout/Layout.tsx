@@ -1,4 +1,4 @@
-import Header from "../header/header";
+import Header from "../header";
 import css from "./layout.module.css";
 
 interface LayoutProps {
@@ -7,11 +7,11 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
 	return (
-		<div>
+		<>
 			<Header />
 			<main className={css.center}>{children}</main>
-			{/* <Footer /> */}
-		</div>
+			<div className={css.bottomPage}>&nbsp;</div>
+		</>
 	);
 };
 
