@@ -2,9 +2,7 @@
 
 .table {
     width: 100%;
-    /* border-collapse: collapse;
-     */
-     border-spacing: 0;
+    border-spacing: 0;
     border: 1px solid var(--boundry);
     border-radius: var(--radius);
     background-color: var(--asWhite);
@@ -46,10 +44,23 @@
     background-color: var(--grey-6);
     text-align: left;
 
+    th {
+        font-weight: semibold;
+        font-size: larger;
+    }
+
+    .headRow {
+        display: flex;
+        gap: var(--sp3);
+        font-size: var(--font-sm);
+    }
+
     .title {
         cursor: pointer;
         border: none;
         background-color: transparent;
+        font-weight: bold;
+        padding: 0;
     }
 }
 
@@ -62,6 +73,19 @@
 .filterIcon {
     cursor: pointer;
     position: relative;
+    margin-inline-start: var(--sp1);
+    padding-block-start: var(--sp1);
+    .notFiltered {
+        stroke: var(--grey-4);
+
+        &:hover {
+            stroke: var(--grey-2);
+        }
+    }
+
+    .filtered {
+        stroke: var(--accent);
+    }
 
 }
 
@@ -75,12 +99,12 @@
     padding: var(--sp2) var(--sp3);
     background-color: var(--asWhite);
     border: 1px solid var(--boundry);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .filterIcon:hover > .filter, .filterIcon:focus-within > .filter {
     display: flex;
 }
-
 
 .overrideLeft {
     text-align: left;

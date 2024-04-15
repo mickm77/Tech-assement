@@ -25,18 +25,20 @@ const TableHead = ({ columns, sortDirection, sortField, filters }: TableHeadProp
 								: css.overrideLeft;
 						return (
 							<th className={`${css.tableCell} ${alignClass}`} key={column.field}>
-								{!column.sortable && column.label}
-								{column.sortable && (
-									<TableSortHeadCell
-										column={column}
-										sortField={sortField}
-										sortDirection={sortDirection}
-										handleSort={column.sort}
-									/>
-								)}
-								{column.filterable && (
-									<TableFilter column={column} filters={filters || []} />
-								)}
+								<div className={css.headRow}>
+									{!column.sortable && column.label}
+									{column.sortable && (
+										<TableSortHeadCell
+											column={column}
+											sortField={sortField}
+											sortDirection={sortDirection}
+											handleSort={column.sort}
+										/>
+									)}
+									{column.filterable && (
+										<TableFilter column={column} filters={filters || []} />
+									)}
+								</div>
 							</th>
 						);
 					})}

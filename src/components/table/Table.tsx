@@ -11,7 +11,7 @@ type TableProps<T> = {
 	filter?: Record<string, string>[];
 	isLoading: boolean;
 	rowSelected?: (row: T) => void;
-	highlightRow?: string;
+	highlightRow?: number | null;
 };
 
 const Table = <T extends any>({
@@ -24,10 +24,9 @@ const Table = <T extends any>({
 	rowSelected,
 	highlightRow,
 }: TableProps<T>) => {
-	const [selectedRow, setSelectedRow] = useState<T | null>(null);
+	// const [selectedRow, setSelectedRow] = useState<T | null>(null);
 
 	const handleRowClick = (row: T) => {
-		setSelectedRow(row);
 		rowSelected?.(row);
 	};
 
@@ -60,7 +59,9 @@ const Table = <T extends any>({
 						<tr
 							key={(row as { id: string }).id}
 							onClick={() => handleRowClick(row)}
-							className={highlightRow === row.id ? css.selectedwik : ""}
+							className={
+								highlightRow === (row as { id: Number })?.id ? css.selected : ""
+							}
 						>
 							{columns
 								.filter((x) => !x.hidden)

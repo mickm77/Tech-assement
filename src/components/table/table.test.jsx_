@@ -1,0 +1,72 @@
+import { render, fireEvent } from "@testing-library/react";
+import Table from "./Table";
+import "@types/jest";
+import { ColumnDef } from "./columnDef";
+
+describe("Table", () => {
+	const mockData = [
+		{ id: 1, name: "Hello", value: "World" },
+		{ id: 2, name: "Yellow", value: "Taxi" },
+	];
+
+	const mockColumns = [
+		{ field: "name", label: "Name", sortable: true, filterable: true },
+		{ field: "value", label: "Value", sortable: true, filterable: true },
+	];
+
+	it("renders without crashing", () => {
+		render(<Table data={mockData} columns={mockColumns} sort='' isLoading={false} />);
+	});
+
+	it("displays data correctly", () => {
+		const { getByText } = render(
+			<Table data={mockData} columns={mockColumns} sort='' isLoading={false} />
+		);
+		expect(getByText("Hello")).toBeInTheDocument();
+		expect(getByText("World")).toBeInTheDocument();
+		expect(getByText("Yellow")).toBeInTheDocument();
+		expect(getByText("Taxi")).toBeInTheDocument();
+	});
+
+	it("displays loading state", () => {
+		const { getByText } = render(
+			<Table data={mockData} columns={mockColumns} sort='' isLoading={true} />
+		);
+		expect(getByText("Loading...")).toBeInTheDocument();
+	});
+
+	it("displays no data state", () => {
+		const { getByText } = render(
+			<Table data={[]} columns={mockColumns} sort='' isLoading={false} />
+		);
+		expect(getByText("No data")).toBeInTheDocument();
+	});
+
+	it("calls rowSelected when a row is clicked", () => {
+		const rowSelected = jest.fn();
+		const { getByText } = render(
+			<Table
+				data={mockData}
+				columns={mockColumns}
+				sort=''
+				isLoading={false}
+				rowSelected={rowSelected}
+			/>
+		);
+		fireEvent.click(getByText("Hello"));
+		expect(rowSelected).toHaveBeenCalledWith(mockData[0]);
+	});
+
+	it("highlights the selected row", () => {
+		const { getByText } = render(
+			<Table
+				data={mockData}
+				columns={mockColumns}
+				sort=''
+				isLoading={false}
+				highlightRow={1}
+			/>
+		);
+		expect(getByText("Hello").closest("tr")).toHaveClass("selected");
+	});
+});
