@@ -1,7 +1,6 @@
 export type Movie = {
 	id: number;
 	title: string;
-	reviews: number[];
 	filmCompanyId: number;
 	cost: number;
 	releaseYear: number;
