@@ -1,13 +1,9 @@
-import { useRef, useState, Children } from "react";
-import { easeIn, easeOut } from "polished";
-import { useBoolean } from "react-use";
-import { createReducer } from "@reduxjs/toolkit";
-import { Movie, FetchMovies } from "./api/movies";
-import { useQuery } from "react-query";
 import Layout from "./layout/Layout";
-import { Route, Router, Routes } from "react-router";
-import MoviesTable from "./components/movies/MoviesTable";
+import { Route, Routes } from "react-router";
 import Home from "./pages/home/Home";
+import Companies from "./pages/companies";
+import Movie from "./pages/movie";
+import Company from "./pages/company";
 
 export const App = () => {
 	return (
@@ -15,9 +11,9 @@ export const App = () => {
 			<Routes>
 				<Route path='/' element={<Home />} />
 				<Route path='/movies' element={<Home />} />
-				{/* <Route path='/movies/:movieId' element={<Movie />} />
 				<Route path='/companies' element={<Companies />} />
-				<Route path='/companies/:companyId' element={<Company />} /> */}
+				<Route path='/movies/:id' element={<Movie />} />
+				<Route path='/company/:id' element={<Company />} />
 			</Routes>
 		</Layout>
 	);
