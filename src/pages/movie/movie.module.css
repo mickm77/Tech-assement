@@ -1,0 +1,44 @@
+
+.title {
+  font-size: var(--subheader-font-size);
+}
+
+.info {
+  display: flex;
+  gap: var(--sp3);
+  font-weight: bold;
+    font-size: var(--font-lg);
+  span {
+    font-weight: normal;
+  }
+}
+
+.review {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: var(--sp2);
+    margin-inline: var(--sp2);
+    
+    max-width: 60ch;
+    .comment {
+        background-color: var(--asWhite);
+        border: 1px solid var(--boundry);
+        border-radius: var(--radius);
+        padding: var(--sp3);
+    }
+    .score {
+        font-size: var(--font-md);
+        font-weight: normal;
+        text-align: right;
+        padding-inline-end: var(--sp3);
+        color: var(--grey-2);
+        span {
+        color: var(--grey-0);
+        font-weight: semibold;
+        }
+    }
+}
+
+.review + .review {
+    margin-block-start: var(--sp6);
+}
