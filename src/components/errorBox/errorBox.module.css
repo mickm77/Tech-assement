@@ -1,0 +1,12 @@
+
+
+.dataError {
+    color: var(--error-primary);
+    font-size: 1.5rem;
+    text-align: center;
+
+    background-color: var(--error-secondary);
+    border: 1px solid var(--error-primary); 
+
+    padding: var(--sp4);
+}
