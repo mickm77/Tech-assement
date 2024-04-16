@@ -1,3 +1,3 @@
-import Review from './review';
+import Review from './Review';
 
 export default Review;
